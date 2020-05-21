@@ -2,7 +2,7 @@
 
 [![GoDoc](https://godoc.org/github.com/jroimartin/gocui?status.svg)](https://godoc.org/github.com/jroimartin/gocui)
 
-🦕: lazydeno - Terminal UI Client for deno land
+🦕lazydeno - Terminal UI Client for deno land
 
 # Features
 
