@@ -61,7 +61,7 @@ func (item *Item) String() string {
 func (result *Result) Draw(writer io.Writer) error {
 	for _, item := range result.Items {
 		//starText := " ⭐️ " + strconv.Itoa(item.GetStars())
-		fmt.Fprintf(writer, "\033[32m%s\033[0m\n", item.Repo)
+		fmt.Fprintf(writer, " \033[32m%s\033[0m - %s\n", item.Repo, item.Desc)
 	}
 	return nil
 }
