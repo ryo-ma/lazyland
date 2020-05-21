@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"sort"
 	"text/template"
 )
 
@@ -17,6 +18,7 @@ type Client struct {
 }
 
 type Item struct {
+	Name  string
 	Type  string `json:"type"`
 	Owner string `json:"owner"`
 	Repo  string `json:"repo"`
@@ -119,9 +121,11 @@ func (client *Client) GetThirdPartyRepositores() (*Result, error) {
 		return nil, err
 	}
 	items := []Item{}
-	for _, v := range itemMap {
+	for k, v := range itemMap {
+		v.Name = k
 		items = append(items, v)
 	}
+	sort.SliceStable(items, func(i, j int) bool { return items[i].Name < items[j].Name })
 	return &Result{
 		Items: items,
 	}, nil
